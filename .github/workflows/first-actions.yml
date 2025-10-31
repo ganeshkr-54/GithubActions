@@ -15,4 +15,9 @@ jobs:
         
         - name: read the file
           run: cat README.md
+        
+        - name: Execute the ascii script
+          run: |
+              chmod +x ascii-script.sh
+              ./ascii-script.sh
           
