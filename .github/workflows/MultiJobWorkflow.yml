@@ -24,7 +24,7 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v5
               with:
-                    name: dragon.txt
+               name: cowsay_file
             - name: find the dragon
               run: grep -i "dragon" dragon.txt
 
@@ -38,7 +38,7 @@ jobs:
             - name: download artifact 
               uses: actions/download-artifact@v5
               with:
-                    name: dragon.txt 
+                name: cowsay_file
                         
             - name: read complete file
               run: cat dragon.txt
