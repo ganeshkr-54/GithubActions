@@ -1,0 +1,13 @@
+name: Matrix Workflow
+on:
+    push
+jobs:
+    deploy:
+        strategy: 
+            matrix:
+                os: [ubuntu-latest, windows-latest, ubuntu-20.04]
+                image: [hello-world, nginx]
+        runs-on: ${{matrix.os}}
+        steps:
+            - name: deploy image on ${{matrix.os}}
+              run: docker run ${{matrix.image}}
