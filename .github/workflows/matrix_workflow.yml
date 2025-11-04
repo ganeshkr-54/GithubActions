@@ -4,9 +4,17 @@ on:
 jobs:
     deploy:
         strategy: 
+
             matrix:
-                os: [ubuntu-latest, ubuntu-20.04]
+                os: [ubuntu-latest, ubuntu-20.04, windows-latest]
                 image: [hello-world, alpine]
+                exclude:
+                    - image: alpine
+                      os: windows-latest
+                include:
+                    - image: nginx
+                      os: ubuntu-latest
+
         runs-on: ${{matrix.os}}
         steps:
             - name: deploy image on ${{matrix.os}}
