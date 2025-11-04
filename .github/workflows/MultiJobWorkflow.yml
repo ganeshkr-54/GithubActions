@@ -9,7 +9,7 @@ jobs:
             - name: Install Cowsay
               run: sudo apt-get install cowsay -y
             - name: build cowsay file
-              run: cowsay -f dragon "Run for cover i am a dragon" > dragon.txt
+              run: cowsay -f dragon "Run for cover i am a dragonn" > dragon.txt
 
             - name: Upload dragon text file
               uses: actions/upload-artifact@v4
@@ -20,6 +20,7 @@ jobs:
     test_job:
         runs-on: ubuntu-latest
         needs: build_job
+        if: ${{github.ref == 'refs/heads/main'}}
         steps:
             - name: download artifact
               uses: actions/download-artifact@v5
@@ -41,6 +42,6 @@ jobs:
                 name: cowsay_file
                         
             - name: read complete file
-              run: cat dragon.txt
+              run: cat dragon.txt 
             
 
